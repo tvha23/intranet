@@ -1,27 +1,28 @@
 package intranet;
+
 import java.util.*;
 
 /**
  * 
  */
-public class Manager extends Employee implements Cloneable{
-	//Constructors
+public class Manager extends Employee implements Cloneable {
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Default constructor
      */
     public Manager() {
     }
-    
-    public Manager(String name, String surname)
-    {
+
+    public Manager(String name, String surname) {
         super(name, surname);
     }
-    public Manager(String id, String password, String name, String surname )
-    {
+
+    public Manager(String id, String password, String name, String surname) {
         super(id, password, name, surname);
     }
 
-    
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Fields~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * 
      */
@@ -41,13 +42,11 @@ public class Manager extends Employee implements Cloneable{
      * @param Course c
      * @return
      */
-    //
-    //
-    
-    
+
     static Data data = Data.getInstance();
 
-    
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Methods~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void addCourseForReg(Course c) {
         data.getCourses().add(c);// ****ASK THIS METHOD****
     }
@@ -76,7 +75,6 @@ public class Manager extends Employee implements Cloneable{
             System.out.println(i + ") " + t.toString());
             i++;
         }
-
     }
 
     /**
@@ -90,12 +88,10 @@ public class Manager extends Employee implements Cloneable{
             System.out.println(i + ") " + s.toString());
             i++;
         }
-
     }
 
     public static Vector<Course> getCourseBySpecialty(String specialty) {
         Vector<Course> coursesBySpecialty = new Vector<Course>();
-        
         for (Course c : data.getCourses()) {
             if (c.getSpecialty().equals(specialty))// gotta add getSpecialty
             {
@@ -105,6 +101,8 @@ public class Manager extends Employee implements Cloneable{
         return coursesBySpecialty;
     }
 
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Equals, Hashcode~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -112,37 +110,73 @@ public class Manager extends Employee implements Cloneable{
         if (o == null || this.getClass() != o.getClass()) {
             return false;
         }
-        User other= (User) o;
-        return other.getid().equals(this.id);//how to get superclass' id? 
+        User other = (User) o;
+        return other.getid().equals(this.id);// how to get superclass' id?
     }
-    //deep clone
-    //compareto
+
+    public int hashCode() {
+        return this.hashCode();
+    }
+
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~compareTo~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     @Override
     public int compareTo(Manager m) {
-        return super.compareTo(m);//compareTo of User
+        return super.compareTo(m);// compareTo of User
     }
+
     
-    
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~clone~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @SuppressWarnings("unchecked")
-	public Employee clone() throws CloneNotSupportedException
-    {
-    	Manager manager=(Manager)super.clone();
-    	manager.courses=(Vector<Course>) this.courses.clone();
-    	manager.teachers=(Vector<Teacher>) this.teachers.clone();
-    	return manager;
+    public Manager clone() throws CloneNotSupportedException {
+        Manager manager = (Manager) super.clone();
+        manager.courses = (Vector<Course>) this.courses.clone();
+        manager.teachers = (Vector<Teacher>) this.teachers.clone();
+        return manager;
     }
-    
-    public int hashCode()
-    {
-    	return this.hashCode();
+
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~toString~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public String toString() {
+        return super.toString() + " Department: " + this.department + ".";
     }
-    
-    public String toString()
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~getters and setters~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public String getFirstName()
     {
-    	return super.toString()+" Department: "+this.department+".";
+        return super.firstname;
     }
-    
-    
+
+    public String getLastName()
+    {
+        return super.lastname;
+    }
+
+    public String getFullName()
+    {
+        return super.getName();
+    }
+
+    public String getId()
+    {
+        return super.getId();
+    }
+
+
+    public void setId(String id) {
+        super.setId(id);
+    }
+
+    public void setPassword(String password) throws TooShortPasswordException {
+        super.setPassword(password);
+    }
+
+    public void setFirstname(String firstname) {
+        super.setFirstname(firstname);
+    }
+
+    public void setLastname(String lastname) {
+        super.setLastname(lastname);
+    }
 
 }

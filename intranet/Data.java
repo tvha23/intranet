@@ -51,7 +51,7 @@ public class Data {
 
 	private static final Data data= new Data();
 
-	//Getters and Setters
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~Getters and Setters~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public static Data getInstance()//Singleton
 	{
 		return data;

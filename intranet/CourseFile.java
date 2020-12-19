@@ -1,7 +1,7 @@
 package intranet;
 
 public class CourseFile {
-	//Constructors
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Default constructor
      */
@@ -18,7 +18,8 @@ public class CourseFile {
     	this.teacher=teacher;
     }
     
-    
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Fields~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * 
      */
@@ -35,7 +36,36 @@ public class CourseFile {
     private String fileType;
     
     
-    //Getters and setters
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~equals, hashcode~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
+        CourseFile other = (CourseFile) o;
+        return other.getCourseFileName().equals(this.getCourseFileName()) 
+            && other.getCourseFileType().equals(this.getCourseFileType())
+            && other.getCourseFileTeacher().equals(this.getCourseFileTeacher()); 
+    }
+
+    public int hashCode() {
+        return this.hashCode();
+    }
+
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~clone~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public CourseFile clone() throws CloneNotSupportedException {
+        CourseFile c = new CourseFile();
+        c.fileType=this.fileType;
+        c.name=this.name;
+        c.teacher=this.teacher;
+        return c;
+    }
+
+    
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Getters and setters~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public String getCourseFileName()
     {
     	return this.name;
@@ -56,16 +86,28 @@ public class CourseFile {
     	return this.teacher;
     }
     
+
     public void setTeacher(Teacher teacher)
     {
     	this.teacher=teacher;
     }
+
     public void setCourseFileName(String name)
     {
     	this.name=name;
     }
+    
+    public void setCourseFileType(String fileType)
+    {
+        this.fileType=fileType;
+    }
 
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~toString~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+    public String toString()
+    {
+        return "File name: " + this.getFullCourseFileName()+" . Teacher:"+this.getCourseFileTeacher().toString();
+    }
 
 
 
