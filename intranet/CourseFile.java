@@ -1,7 +1,14 @@
 package intranet;
 
-public class CourseFile {
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import java.io.Serializable;
+
+public class CourseFile implements Serializable {
+	/**
+     *
+     */
+    private static final long serialVersionUID = 31383820034840074L;
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Default constructor
      */

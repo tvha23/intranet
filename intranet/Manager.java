@@ -1,11 +1,17 @@
 package intranet;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class Manager extends Employee implements Cloneable {
+public abstract class Manager extends Employee implements Cloneable, Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 2224419879339576842L;
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Default constructor
@@ -113,10 +119,6 @@ public class Manager extends Employee implements Cloneable {
     }
 
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~toString~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public String toString() {
-        return super.toString() + " Department: " + this.department + ".";
-    }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~getters and setters~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public String getFirstName()
     {
@@ -148,6 +150,11 @@ public class Manager extends Employee implements Cloneable {
 
     public void setLastname(String lastname) {
         super.setLastname(lastname);
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~toString~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public String toString() {
+    return super.toString() + " Department: " + this.department + ".";
     }
 
 }

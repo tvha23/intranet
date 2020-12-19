@@ -1,8 +1,14 @@
 package intranet;
 
+import java.io.Serializable;
 import java.util.Vector;
 
-public class Course {
+public class Course implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = -210789856211635347L;
 
     /**
      * Default constructor

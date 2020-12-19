@@ -1,6 +1,13 @@
 package intranet;
 
-public abstract class Employee extends User  {
+import java.io.Serializable;
+
+public abstract class Employee extends User implements Serializable  {
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4914519828243548480L;
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Default constructor
@@ -24,23 +31,10 @@ public abstract class Employee extends User  {
         TechSupportGuy.addOrder(o);// gotta implement addOrder to TechGuy
     }
     
-    
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~compareTo~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public int compareTo(Manager m) {
-        return super.compareTo(m);
-    }
-
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~clone~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public Employee clone() throws CloneNotSupportedException {
         return (Employee)super.clone();
-    }
-
-
-
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~toString~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public String toString() {
-        return super.toString();
     }
 
 }
