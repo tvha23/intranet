@@ -29,7 +29,7 @@ public class User implements Comparable<User> {
 	 public void setId(String id) {
 	  this.id = id;
 	 }
-	 public void setPassword(String password) throws TooShortPasswordException {
+	 public void setPassword(String password)  {
 	  this.password = password;
 	 }
 	 public void setFirstname(String firstname) {
@@ -44,7 +44,7 @@ public class User implements Comparable<User> {
 	 public String getid() {
 	  return id;
 	 }
-	  void ChangePassword(String newPassword) {
+	  void ChangePassword(String newPassword) throws TooShortPasswordException {
 	   this.password = newPassword; 
 	  }
 	  void loggedSuccessfully(String id, String password) {

@@ -140,7 +140,7 @@ public abstract class Manager extends Employee implements Cloneable, Serializabl
         super.setId(id);
     }
 
-    public void setPassword(String password) throws TooShortPasswordException {
+    public void setPassword(String password) {
         super.setPassword(password);
     }
 
