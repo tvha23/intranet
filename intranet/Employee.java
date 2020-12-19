@@ -1,6 +1,6 @@
 package intranet;
 
-public class Employee extends User  {
+public abstract class Employee extends User  {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Constructors~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     /**
      * Default constructor
@@ -25,16 +25,6 @@ public class Employee extends User  {
     }
     
     
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~equals, hashcode~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-    
-    public int hashCode() {
-        return this.hashCode();
-    }
-    
-    
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~compareTo~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public int compareTo(Manager m) {
         return super.compareTo(m);
@@ -46,30 +36,6 @@ public class Employee extends User  {
         return (Employee)super.clone();
     }
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~getters and setters~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public String getName() {
-        return super.getName();
-    }
-
-    public String getId() {
-        return super.getid();
-    }
-
-    public void setId(String id) {
-        super.setId(id);
-    }
-
-    public void setPassword(String password) throws TooShortPasswordException {
-        super.setPassword(password);
-    }
-
-    public void setFirstname(String firstname) {
-        super.setFirstname(firstname);
-    }
-
-    public void setLastname(String lastname) {
-        super.setLastname(lastname);
-    }
 
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~toString~~~~~~~~~~~~~~~~~~~~~~~~~~~~

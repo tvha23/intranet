@@ -102,37 +102,13 @@ public class Manager extends Employee implements Cloneable {
     }
 
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~Equals, Hashcode~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || this.getClass() != o.getClass()) {
-            return false;
-        }
-        User other = (User) o;
-        return other.getid().equals(this.id);// how to get superclass' id?
-    }
-
-    public int hashCode() {
-        return this.hashCode();
-    }
-
-
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~compareTo~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    @Override
-    public int compareTo(Manager m) {
-        return super.compareTo(m);// compareTo of User
-    }
-
-    
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~clone~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @SuppressWarnings("unchecked")
     public Manager clone() throws CloneNotSupportedException {
         Manager manager = (Manager) super.clone();
         manager.courses = (Vector<Course>) this.courses.clone();
         manager.teachers = (Vector<Teacher>) this.teachers.clone();
+        manager.department=this.department;
         return manager;
     }
 
@@ -150,11 +126,6 @@ public class Manager extends Employee implements Cloneable {
     public String getLastName()
     {
         return super.lastname;
-    }
-
-    public String getFullName()
-    {
-        return super.getName();
     }
 
     public String getId()
